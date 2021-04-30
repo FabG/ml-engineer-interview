@@ -2,7 +2,7 @@
 
 On this section, the candidate will have to show an understanding of how algorithms compare with one another and how to measure their efficacy and accuracy in the right way.
 
-#### 1. What Are the Different Types of Machine Learning and some example of algorithms?ml-types
+#### 1. What Are the Different Types of Machine Learning and some example of algorithms and use cases?
 There are three types of machine learning:
 
 **Supervised Learning**
@@ -17,6 +17,13 @@ There are three types of machine learning:
  - Support Vector Machines (SVM)
  - Neural Networks
 
+ Example of supervised learning tasks:
+ - image classification
+ - facial recognition
+ - sales forecasting
+ - customer churn prediction
+  - spam detection.
+
 **Unsupervised Learning**
 - In unsupervised learning, we `don't have labeled data`. A model can identify patterns, anomalies, and relationships in the input data
 - Here there’s no teacher at all, actually the computer might be able to teach you new things after it learns patterns in data, these algorithms a particularly useful in cases where the human expert doesn’t know what to look for in the data.
@@ -24,6 +31,42 @@ There are three types of machine learning:
 - List of Common algorithms:
  - k-means clustering
  - Association Rules
+
+Examples of unsupervised learning tasks:
+- customer segmentation
+- anomaly detection in network traffic
+- content recommendation
+
+ **Semi-supervised Learning**
+ Supervised learning uses data that is completely labeled, whereas unsupervised learning uses no training data.
+
+ In the case of semi-supervised learning, the training data contains a small amount of labeled data and a large amount of unlabeled data. You want to train your model without labeling every single training example, for which you’ll get help from unsupervised machine learning techniques.
+
+Some background: Machine learning has proven to be very efficient at classifying images and other unstructured data, a task that is very difficult to handle with classic rule-based software. But before machine learning models can perform classification tasks, they need to be trained on a lot of annotated examples. Data annotation is a slow and manual process that requires humans reviewing training examples one by one and giving them their right label.
+
+In fact, data annotation is such a vital part of machine learning that the growing popularity of the technology has given rise to a huge market for labeled data. From Amazon’s Mechanical Turk to startups such as LabelBox, ScaleAI, and Samasource, there are dozens of platforms and companies whose job is to annotate data to train machine learning systems.
+
+Fortunately, for some classification tasks, you don’t need to label all your training examples. Instead, you can use semi-supervised learning, a machine learning technique that can automate the data-labeling process with a bit of help.
+
+One way to do semi-supervised learning is to combine clustering and classification algorithms. Clustering algorithms are unsupervised machine learning techniques that group data together based on their similarities. The clustering model will help us find the most relevant samples in our data set. We can then label those and use them to train our supervised machine learning model for the classification task.
+
+Example:
+Say we want to train a machine learning model to classify handwritten digits, but all we have is a large data set of unlabeled images of digits. Annotating every example is out of the question and we want to use semi-supervised learning to create your AI model.
+
+First, we use k-means clustering to group our samples. K-means is a fast and efficient unsupervised learning algorithm, which means it doesn’t require any labels. K-means calculates the similarity between our samples by measuring the distance between their features. In the case of our handwritten digits, every pixel will be considered a feature, so a 20×20-pixel image will be composed of 400 features.
+
+![k-means](../images/k-means-clustering.jpg)
+
+When training the k-means model, you must specify how many clusters you want to divide your data into. Naturally, since we’re dealing with digits, our first impulse might be to choose ten clusters for our model. But bear in mind that some digits can be drawn in different ways. For instance, here are different ways you can draw the digits 4, 7, and 2. You can also think of various ways to draw 1, 3, and 9.
+
+Therefore, in general, the number of clusters you choose for the k-means machine learning model should be greater than the number of classes. In our case, we’ll choose 50 clusters, which should be enough to cover different ways digits are drawn.
+
+After training the k-means model, our data will be divided into 50 clusters. Each cluster in a k-means model has a centroid, a set of values that represent the average of all features in that cluster. We choose the most representative image in each cluster, which happens to be the one closest to the centroid. This leaves us with 50 images of handwritten digits.
+
+Now, we can label these 50 images and use them to train our second machine learning model, the classifier, which can be a logistic regression model, an artificial neural network, a support vector machine, a decision tree, or any other kind of supervised learning engine.
+
+Training a machine learning model on 50 examples instead of thousands of images might sound like a terrible idea. But since the k-means model chose the 50 images that were most representative of the distributions of our training data set, the result of the machine learning model will be remarkable. In fact, the above example, which was adapted from the excellent book Hands-on Machine Learning with Scikit-Learn, Keras, and Tensorflow, shows that training a regression model on only 50 samples selected by the clustering algorithm results in a 92-percent accuracy (you can find the implementation in Python in this Jupyter Notebook). In contrast, training the model on 50 randomly selected samples results in 80-85-percent accuracy.
+
 
 
 **Reinforcement Learning**
@@ -102,6 +145,8 @@ A `categorical` feature will have a definite number of possibilities, such as ge
 
 
 #### 3. What’s the trade-off between bias and variance?
+*Notes to remember*: `V`ariance has a V for o`v`erfitting. Bias does not
+
 - **Bias** is error due to erroneous or overly simplistic assumptions in the learning algorithm you’re using. This can lead to the model **underfitting** your data, making it **hard for it to have high predictive accuracy and for you to generalize** your knowledge from the training set to the test set.
 
 - **Variance** is error due to too much complexity in the learning algorithm you’re using. This leads to the algorithm being highly sensitive to high degrees of variation in your training data, which can lead your model to **overfit** the data. You’ll be **carrying too much noise from your training data** for your model to be very useful for your test data.
@@ -129,17 +174,42 @@ The bias-variance decomposition essentially decomposes the learning error from a
 
 
 
-##### 4b. In a Confusion matrix, define precision, recall and F1 score.
-- Both are Advanced classification metrics based on confusion matrix
-- **Recall** (also known as **sensitivity**) is also known as the true positive rate: the amount of positives your model claims compared to the actual number of positives there are throughout the data.
-- **Precision** is also known as the positive predictive value, and it is a measure of the amount of accurate positives your model claims compared to the number of positives it actually claims. It can be easier to think of recall and precision in the context of a case where you’ve predicted that there were 10 apples and 5 oranges in a case of 10 apples. You’d have perfect recall (there are actually 10 apples, and you predicted there would be 10) but 66.7% precision because out of the 15 events you predicted, only 10 (the apples) are correct.
+##### 4b. In a Confusion matrix, define accuracy, precision, recall and F1 score.
+- **Accuracy** could be a deceptively reasonable-sounding metric for classifiers: It is the `proportion of the correctly predicted labels among all our predictions`.
+ - `accuracy = (True Positives + True Negatives) / Total Points`
+ - Accuracy is not always perfect for model evaluation, especially for imbalanced data sets. For example, let's use a spam filter. Spams are annoying but relatively rare. Assuming a true spam rate of 2%, we could have a dumb filter that simply labels every email as non-spam. In doing so, the filter is correct 98% of the time, which is equivalent to an impressive accuracy score of 0.98, but this dumb filter is also clearly useless.
+ - Therefore, accuracy can only be useful when the classes are well balanced and we care equally about both the positive and negative cases.
+
+- **Recall** (also known as **sensitivity** or as the `true positive rate`): the amount of positives your model claims compared to the actual number of positives there are throughout the data.
+ - The recall score is of particular interest when `minimizing false negatives` takes priority (e.g., screening for a fatal infectious disease; a false negative would send a patient home without timely treatment).
+ - `recall= True Positives / (True Positives + False Negatives)`
+ - Recall focuses on `False Negative` errors.
+
+![recall_formula](../images/recall_formula.png)
+
+- **Precision** (also known as the `positive predictive value`) is the proportion of correctly identified positive labels (TP) among all the predicted positive labels (TP + FP).
+  - Precision focuses on `False Positive` errors.
+  - Because low FP yields high precision, precision is an excellent metric when `minimizing false-positives takes priority` (e.g., a `spam filter` misidentifies legitimate emails as spam). However, when the positive cases are rare, precision alone is not enough to warn us against the case of high false negatives.!
+ - `precision= True Positives / (True Positives + False Positives)`
+
+![precision_formula](../images/precision_formula.png)
+
 - **F1 score**: weighted average of the recall (sensitivity) and precision. F1 score might be good choice when you seek to balance between Precision and Recall.
+![f1 score](../images/f1score_formula.png)
+
 
 ![precision recall](../images/precision-recall.png)
 
+- **specificity**: is the mirror image of recall (also known as sensitivity): It tells us the proportion of correctly identified negative labels (TN)among all the negative labels (TN + FP)
+
+![specificity_formula](../images/specificity_formula.png)
+
 ![precision recall confusion matrix](../images/precision-recall-confusion-matrix.jpeg)
 
-![f1 score](../images/f1score.jpg)
+
+##### 4c. Explain how a ROC curve works.
+The ROC curve is a graphical representation of the contrast between true positive rates and the false positive rate at various thresholds. It’s often used as a proxy for the trade-off between the sensitivity of the model (true positives) vs the fall-out or the probability it will trigger a false alarm (false positives).
+
 
 #### 5. What is Bayes’ Theorem? How is it useful in a machine learning context?
 - Bayes’ Theorem gives you the posterior probability of an event given what is known as prior knowledge.
@@ -167,6 +237,7 @@ The bias-variance decomposition essentially decomposes the learning error from a
  - A clever way to think about this is to think of:
   - `Type I` error as telling a man he is pregnant
   - while `Type II` error means you tell a pregnant woman she isn’t carrying a baby.
+![pregnant-typeI-typeII](../images/pregnant-typeI-typeII.jpg)
 
 #### 8. What Are the Three Stages of Building a Model in Machine Learning?
 The three stages of building a machine learning model are:
@@ -186,6 +257,9 @@ Here, it’s important to remember that once in a while, the model needs to be c
   - KNN is supervised in nature
   - KNN is a classification algorithm
   - It classifies an unlabeled observation based on its K (can be any number) surrounding neighbors
+  - KNN is a typical example of a `lazy learner`. It is called lazy not because of its apparent simplicity, but because it doesn't learn a discriminative function from the training data but memorizes the training dataset instead.
+
+
 
 #### 10. When Will You Use Classification over Regression?
 - Classification is used when your target is categorical, while regression is used when your target variable is continuous. Both classification and regression belong to the category of supervised machine learning algorithms.
@@ -213,3 +287,39 @@ Here, it’s important to remember that once in a while, the model needs to be c
 #### 12. What is a Random Forest?
 - A ‘random forest’ is a supervised machine learning algorithm that is generally used for classification problems. It operates by constructing multiple decision trees during the training phase. The random forest chooses the decision of the majority of the trees as the final decision.
 ![random forest](../images/1-random_forest.jpg)
+
+#### 13. What is XGboost?
+XGBoost is an algorithm that has recently been dominating applied machine learning and Kaggle competitions for structured or tabular data.
+
+XGBoost stands for e`X`treme `G`radient `Boost`ing.
+It is a popular and efficient open-source implementation of the gradient boosted trees algorithm. Gradient boosting is a supervised learning algorithm that attempts to accurately predict a target variable by combining an ensemble of estimates from a set of simpler and weaker models. The XGBoost algorithm performs well in machine learning competitions because of its robust handling of a variety of data types, relationships, distributions, and the variety of hyperparameters that you can fine-tune. You can use XGBoost for regression, classification (binary and multiclass), and ranking problems.
+
+- Model Features
+The implementation of the model supports the features of the scikit-learn and R implementations, with new additions like regularization. Three main forms of gradient boosting are supported:
+
+  - Gradient Boosting algorithm also called gradient boosting machine including the learning rate.
+  - Stochastic Gradient Boosting with sub-sampling at the row, column and column per split levels.
+  - Regularized Gradient Boosting with both L1 and L2 regularization.
+
+
+ - System Features
+The library provides a system for use in a range of computing environments, not least:
+
+  - Parallelization of tree construction using all of your CPU cores during training.
+  - Distributed Computing for training very large models using a cluster of machines.
+  - Out-of-Core Computing for very large datasets that don’t fit into memory.
+  - Cache Optimization of data structures and algorithm to make best use of hardware.
+
+ - Algorithm Features
+The implementation of the algorithm was engineered for efficiency of compute time and memory resources. A design goal was to make the best use of available resources to train the model. Some key algorithm implementation features include:
+
+  - Sparse Aware implementation with automatic handling of missing data values.
+  - Block Structure to support the parallelization of tree construction.
+  - Continued Training so that you can further boost an already fitted model on new data.
+XGBoost is free open source software available for use under the permissive Apache-2 license.
+
+- Why Use XGBoost?
+The two reasons to use XGBoost are also the two goals of the project:
+
+  - Execution Speed.
+  - Model Performance.
