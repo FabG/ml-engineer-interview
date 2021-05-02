@@ -35,3 +35,6 @@ See questions: [company-industry knowledge](questions/company-industry-knowledge
  - [decision tree vs random forest](https://www.analyticsvidhya.com/blog/2020/05/decision-tree-vs-random-forest-algorithm/)
  - [XGboost deep dive](https://medium.com/sfu-cspmp/xgboost-a-deep-dive-into-boosting-f06c9c41349)
  - [Understanding AUC and ROC](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5)
+ - [probability and likelihood](https://ruccs.rutgers.edu/images/personal-charles-r-gallistel/publications/2015-APS-Bayes-for-Beginners-1-Probability-and-Likelihood---Association-for-Psychological-Science.pdf)
+ - [deep learning basics intro and overview with TF](https://medium.com/tensorflow/mit-deep-learning-basics-introduction-and-overview-with-tensorflow-355bcd26baf0)
+ - [an overview of deep learning](https://lilianweng.github.io/lil-log/2017/06/21/an-overview-of-deep-learning.html)

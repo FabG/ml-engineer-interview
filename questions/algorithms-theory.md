@@ -235,8 +235,9 @@ The ROC curve is a graphical representation of the contrast between true positiv
 
 #### 7. What’s the difference between Type I and Type II error?
  - Don’t think that this is a trick question! Many machine learning interview questions will be an attempt to lob basic questions at you just to make sure you’re on top of your game and you’ve prepared all of your bases.
- - **Type I** error is a `false positive`, while **Type II** error is a `false negative`.
- - Briefly stated, Type I error means claiming something has happened when it hasn’t, while Type II error means that you claim nothing is happening when in fact something is.
+ - **Type I** error is a `false positive`
+ - **Type II** error is a `false negative`.
+  - Briefly stated, Type I error means claiming something has happened when it hasn’t, while Type II error means that you claim nothing is happening when in fact something is.
  - A clever way to think about this is to think of:
   - `Type I` error as telling a man he is pregnant
   - while `Type II` error means you tell a pregnant woman she isn’t carrying a baby.
@@ -442,3 +443,54 @@ Higher the AUC, the better the model is at predicting 0s as 0s and 1s as 1s. By 
 - An excellent model has AUC near to the 1 which means it has a good measure of separability.
 - A poor model has AUC near to the 0 which means it has the worst measure of separability. In fact, it means it is reciprocating the result. It is predicting 0s as 1s and 1s as 0s.
 - And when AUC is 0.5, it means the model has no class separation capacity whatsoever.
+
+
+#### 15. What’s a Fourier transform?
+A **Fourier transform** is a generic method to decompose generic functions into a superposition of symmetric functions.
+- Analogy - Given a smoothie, it’s how we find the recipe.
+- The Fourier transform finds the set of cycle speeds, amplitudes, and phases to match any time signal.
+- A Fourier transform converts a signal from time to frequency domain—it’s a very common way to extract features from audio signals or other time series such as sensor data.
+- The Fourier Transform is a tool that breaks a waveform (a function or signal) into an alternate representation, characterized by sine and cosines. The Fourier Transform shows that any waveform can be re-written as the sum of sinusoidal functions.
+
+
+#### 15. What’s a Fourier transform?
+The distinction between `probability` and `likelihood` is fundamentally important:
+- **Probability** attaches to `possible results`.
+- **Likelihood** attaches to `hypotheses`.
+
+- Possible `results` are `mutually exclusive and exhaustive`.
+ - Suppose we ask a subject to predict the outcome of each of 10 tosses of a
+coin. There are only 11 possible results (0 to 10 correct predictions). The actual result will always be one and only one of the
+possible results. Thus, `the probabilities that attach to the possible results must sum to 1`.
+- `Hypotheses`, unlike results, are `neither mutually exclusive nor exhaustive`.
+ - Suppose that the first subject we test predicts 7 of the 10
+outcomes correctly. I might hypothesize that the subject just guessed, and you might hypothesize that the subject may be
+somewhat clairvoyant, by which you mean that the subject may be expected to correctly predict the results at slightly greater than
+chance rates over the long run. These are different hypotheses, but they are not mutually exclusive, because you hedged when you
+said “may be.” You thereby allowed your hypothesis to include mine. In technical terminology, my hypothesis is nested within yours.
+Someone else might hypothesize that the subject is strongly clairvoyant and that the observed result underestimates the probability
+that her next prediction will be correct. Another person could hypothesize something else altogether. There is no limit to the
+hypotheses one might entertain.
+ - The `set of hypotheses to which we attach likelihoods is limited by our capacity to dream them up`. In practice, we can rarely be
+confident that we have imagined all the possible hypotheses. Our concern is to estimate the extent to which the experimental
+results affect the relative likelihood of the hypotheses we and others currently entertain. Because we generally do not entertain the
+full set of alternative hypotheses and because some are nested within others, the likelihoods that we attach to our hypotheses do
+not have any meaning in and of themselves; only the relative likelihoods — that is, the ratios of two likelihoods — have meaning.
+
+
+#### 16. What is deep learning, and how does it contrast with other machine learning algorithms?
+Deep learning is a subset of machine learning that is concerned with neural networks: how to use backpropagation and certain principles from neuroscience to more accurately model large sets of unlabelled or semi-structured data. In that sense, deep learning represents an unsupervised learning algorithm that learns representations of data through the use of neural nets.
+
+A neural network (“NN”) can be well presented in a directed acyclic graph: the input layer takes in signal vectors; one or multiple hidden layers process the outputs of the previous layer.
+
+Here is a A three-layer artificial neural network:
+![Neural net](../images/ANN.png)
+
+Here is an interesting plot presenting the relationship between the data scale and the model performance, proposed by Andrew Ng in his “Nuts and Bolts of Applying Deep Learning” talk.
+- On a `small dataset`, `traditional algorithms` (Regression, Random Forests, SVM, GBM, etc.) or statistical learning does a great job
+- Once the `data scale goes up to the sky`, the `large NN outperforms others`. Partially because compared to a traditional ML model, a neural network model has many more parameters and has the `capability to learn complicated nonlinear patterns`. Thus we expect the model to pick the most helpful features by itself without too much expert-involved manual feature engineering.
+
+![data_size_vs_model_performance](../images/data_size_vs_model_performance.png)
+
+
+##### 6b. What are different Deep neural nets?
