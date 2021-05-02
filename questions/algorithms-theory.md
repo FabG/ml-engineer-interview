@@ -213,17 +213,20 @@ The ROC curve is a graphical representation of the contrast between true positiv
 
 #### 5. What is Bayes’ Theorem? How is it useful in a machine learning context?
 - Bayes’ Theorem gives you the posterior probability of an event given what is known as prior knowledge.
+- Formula: `P(A∣B)= P(A)*P(B∣A) / P(B)`
+
 - Mathematically, it’s expressed as the true positive rate of a condition sample divided by the sum of the false positive rate of the population and the true positive rate of a condition.
  - Example: Say you had a 60% chance of actually having the flu after a flu test, but out of people who had the flu, the test will be false 50% of the time, and the overall population only has a 5% chance of having the flu. Would you actually have a 60% chance of having the flu after having a positive test?
  - Bayes’ Theorem says no. It says that you have a (.6 * 0.05) (True Positive Rate of a Condition Sample) / (.6 * 0.05)(True Positive Rate of a Condition Sample) + (.5 * 0.95) (False Positive Rate of a Population)  = 0.0594 or 5.94% chance of getting a flu.
-- Bayes’ Theorem is the basis behind a branch of machine learning that most notably includes the Naive Bayes classifier. That’s something important to consider when you’re faced with machine learning interview questions.
+- Bayes’ Theorem is the basis behind a branch of machine learning that most notably includes the Naive Bayes classifier.
+
 ![bayes-formula](../images/bayes-formula.png)
 
 
 ##### 5b. What Is ‘naive’ in the Naive Bayes Classifier?
  - The classifier is called ‘naive’ because it makes assumptions that may or may not turn out to be correct.
- - The algorithm assumes that the presence of one feature of a class is not related to the presence of any other feature (absolute independence of features), given the class variable.
- - For instance, a fruit may be considered to be a cherry if it is red in color and round in shape, regardless of other features. This assumption may or may not be right (as an apple also matches the description).
+ - The algorithm assumes that the presence of one feature of a class is not related to the presence of any other feature (**absolute independence of features**), given the class variable.
+ - For instance, a **fruit may be considered to be a cherry if it is red in color and round in shape, regardless of other features**. This assumption may or may not be right (as an apple also matches the description).
 
 
 #### 6. What’s your favorite algorithm, and can you explain it to me in less than a minute?
@@ -289,10 +292,10 @@ Here, it’s important to remember that once in a while, the model needs to be c
 ![random forest](../images/1-random_forest.jpg)
 
 #### 13. What is XGboost?
-XGBoost is an algorithm that has recently been dominating applied machine learning and Kaggle competitions for structured or tabular data.
+**XGBoost** is an algorithm that has recently been dominating applied machine learning and Kaggle competitions for structured or tabular data.
 
 XGBoost stands for e`X`treme `G`radient `Boost`ing.
-It is a popular and efficient open-source implementation of the gradient boosted trees algorithm. Gradient boosting is a supervised learning algorithm that attempts to accurately predict a target variable by combining an ensemble of estimates from a set of simpler and weaker models. The XGBoost algorithm performs well in machine learning competitions because of its robust handling of a variety of data types, relationships, distributions, and the variety of hyperparameters that you can fine-tune. You can use XGBoost for regression, classification (binary and multiclass), and ranking problems.
+It is a popular and efficient open-source implementation of the gradient boosted trees algorithm. Gradient boosting is a supervised learning algorithm that attempts to accurately predict a target variable by **combining an ensemble of estimates from a set of simpler and weaker models**. The XGBoost algorithm performs well in machine learning competitions because of its robust handling of a variety of data types, relationships, distributions, and the variety of hyperparameters that you can fine-tune. You can use XGBoost for regression, classification (binary and multiclass), and ranking problems.
 
 - Model Features
 The implementation of the model supports the features of the scikit-learn and R implementations, with new additions like regularization. Three main forms of gradient boosting are supported:
@@ -323,3 +326,119 @@ The two reasons to use XGBoost are also the two goals of the project:
 
   - Execution Speed.
   - Model Performance.
+
+XGBoost is a decision-tree-based ensemble Machine Learning algorithm that uses a gradient boosting framework. In prediction problems involving unstructured data (images, text, etc.) artificial neural networks tend to outperform all other algorithms or frameworks. tree-basedHowever, when it comes to small-to-medium structured/tabular data, decision tree based algorithms are considered best-in-class right now. Please see the chart below for the evolution of tree-based algorithms over the years.
+
+Note - Ensemble learning methods can be performed in two ways:
+- **Bagging** (parallel ensemble)
+- **Boosting** (sequential ensemble)
+
+![tree-based algos](../images/tree-based-algos.jpeg)
+
+
+##### Working of boosting algorithm:
+The boosting algorithm **creates new weak learners (models) and sequentially combines their predictions** to improve the overall performance of the model.
+
+For any incorrect prediction, **larger weights are assigned to misclassified samples** and lower ones to samples that are correctly classified. Weak learner models that perform better have higher weights in the final ensemble model.
+
+**Boosting never changes the previous predictor and only corrects the next predictor by learning from mistakes**.
+
+**Since Boosting is greedy, it is recommended to set a stopping criterion such as model performance (early stopping) or several stages (e.g. depth of tree in tree-based learners) to prevent overfitting of training data**.
+
+The first implementation of boosting was named **AdaBoost (Adaptive Boosting).**
+![adaboost](../images/AdaBoost.png)
+
+`Capital F(i) is current model, F(i-1) is previous model and small f(i) represents a weak model`
+
+![internal working of boosting algo](../images/boosting-algo-internal.png)
+
+
+**Gradient boosting** uses Additive Modeling in which a new decision tree is added one at a time to a model that minimizes the loss using gradient descent.  
+- Existing trees in the model remain untouched and thus slow down the rate of overfitting.
+- The output of the new tree is combined with the output of existing trees until the loss is minimized below a threshold or specified limit of trees is reached.
+
+#### 13b Decision Tree and Random Forest
+##### What is A Decision Tree Algorithm?
+Decision tree learning is a common type of machine learning algorithm. One of the advantages of the decision trees over other machine learning algorithms is **how easy they make it to visualize data**. At the same time, they offer significant versatility: they **can be used for building both classification and regression predictive models**.
+
+Decision tree algorithms work by constructing a “tree.” In this case, based on an Italian wine dataset, the tree is being used to classify different wines based on alcohol content (e.g., greater or less than 12.9%) and degree of dilution (e.g., an OD280/OD315 value greater or less than 2.1). Each branch (i.e., the vertical lines in figure 1 below) corresponds to a feature, and each leaf represents a target variable. In our case, the features are Alcohol and OD280/OD315, and the target variables are the Class of each observation (0,1 or 2).
+
+![decision-tree-example-wine](../images/decision-tree-python-example.png)
+
+ Without any fine tuning of the algorithm, decision trees produce moderately successful results. Coupled with ensemble methods that data scientists have developed, like boosting and bagging, they can achieve surprisingly high predictability.
+
+The forest is said to robust when there are a lot of trees in the forest. Random Forest is an ensemble technique that is a tree-based algorithm. The process of fitting no decision trees on different subsample and then taking out the average to increase the performance of the model is called “Random Forest”.
+
+sSuppose we have to go on a vacation to someplace. Before going to the destination we vote for the place where we want to go. Once we have voted for the destination then we choose hotels, etc. And then come back with the final choice of hotel as well. The whole process of getting the vote for the place to the hotel is nothing but a Random Forest Algorithm. This is the way the algorithm works and the reason it is preferred over all other algorithms because of its ability to give high accuracy and to prevent overfitting by making use of more trees.
+
+There are several different hyperparameters like no trees, depth of trees, jobs, etc in this algorithm. Check here the Sci-kit documentation for the same.
+
+
+##### A Simple Analogy to Explain Decision Tree vs. Random Forest
+Let’s start with a thought experiment that will illustrate the difference between a decision tree and a random forest model.
+
+- Suppose a bank has to approve a small loan amount for a customer and the bank needs to make a decision quickly. The bank checks the person’s credit history and their financial condition and finds that they haven’t re-paid the older loan yet. Hence, the bank rejects the application.
+  - But here’s the catch – the loan amount was very small for the bank’s immense coffers and they could have easily approved it in a very low-risk move. Therefore, the bank lost the chance of making some money.
+
+- Now, another loan application comes in a few days down the line but this time the bank comes up with a different strategy – **multiple decision-making processes**. Sometimes it checks for credit history first, and sometimes it checks for customer’s financial condition and loan amount first. Then, the bank combines results from these multiple decision-making processes and decides to give the loan to the customer.
+  - Even if this process took more time than the previous one, the bank profited using this method. This is a classic example where **collective decision making outperformed a single decision-making process**.
+
+###### Bank example for Decision Tree
+Brief Introduction to Decision Trees
+A decision tree is a supervised machine learning algorithm that can be used for both classification and regression problems. A decision tree is simply a series of sequential decisions made to reach a specific result. Here’s an illustration of a decision tree in action (using our above example):
+![decision tree bank](../images/decision-tree-bank.png)
+
+First, it checks if the customer has a good credit history. Based on that, it classifies the customer into two groups, i.e., customers with good credit history and customers with bad credit history. Then, it checks the income of the customer and again classifies him/her into two groups. Finally, it checks the loan amount requested by the customer. Based on the outcomes from checking these three features, the decision tree decides if the customer’s loan should be approved or not.
+
+The features/attributes and conditions can change based on the data and complexity of the problem but the overall idea remains the same. So, a decision tree makes a series of decisions based on a set of features/attributes present in the data, which in this case were credit history, income, and loan amount.
+
+###### Bank example for Random Forest
+Random Forest is a tree-based machine learning algorithm that leverages the power of multiple decision trees for making decisions. As the name suggests, it is a “forest” of trees!
+
+But why do we call it a “random” forest? That’s because it is a forest of randomly created decision trees. Each node in the decision tree works on a random subset of features to calculate the output. The random forest then combines the output of individual decision trees to generate the final output.
+
+In simple words:
+*The Random Forest Algorithm combines the output of multiple (randomly created) Decision Trees to generate the final output.*
+![random forest bank](../images/random-forest-bank.png)
+
+This process of combining the output of multiple individual models (also known as weak learners) is called Ensemble Learning.
+
+##### 13c. Ensemble learning - Random Forests vs Gradient Boosted Trees
+Simply put, ensemble learning algorithms build upon other machine learning methods by combining models. The combination can be more powerful and accurate than any of the individual models.
+
+The main difference between these two algorithms is the order in which each component tree is trained.
+ - **Random Forests** train each tree independently, using a random sample of the data. This randomness helps to make the model more robust than a single decision tree, and less likely to overfit on the training data.
+ - **GBTs** train one tree at a time, where each new tree helps to correct errors made by previously trained trees. With each tree added, the model becomes even more expressive.
+
+ In the end, both methods produce a weighted collection of Decision Trees. The ensemble model makes predictions by combining results from the individual trees. The figure below shows a simple example of an ensemble with three trees.
+![ensemble model](../images/ensemble-example.png)
+
+ In the example regression ensemble above, each tree predicts a real value. These three predictions are then combined to produce the ensemble’s final prediction. Here, we combine predictions using the mean (but the algorithms use different techniques depending on the prediction task).
+
+
+#### 14. Explain how a ROC curve works
+A Receiver Operating Characteristic curve, or **ROC** curve, is a graphical plot of the contrast between true positive rates and the false positive rate at various thresholds.
+
+ It’s often used as a proxy for the trade-off between the sensitivity of the model (true positives) vs the fall-out or the probability it will trigger a false alarm (false positives).
+
+ ![roc](../images/ROC.png)
+
+
+##### 14b. What is AUC ?
+**AUC** stand for Area Under The Curve. AUC represents the degree or measure of separability. It tells how much the model is capable of distinguishing between classes.
+Higher the AUC, the better the model is at predicting 0s as 0s and 1s as 1s. By analogy, the Higher the AUC, the better the model is at distinguishing between patients with the disease and no disease.
+
+![AUC](../images/AUC.png)
+
+###### Defining terms used in AUC and ROC Curve.
+
+![TPR](../images/TPR.png)
+
+![Sensitivity](../images/Sensitivity.png)
+
+![FPR](../images/FPR.png)
+
+##### How to speculate about the performance of the model?
+- An excellent model has AUC near to the 1 which means it has a good measure of separability.
+- A poor model has AUC near to the 0 which means it has the worst measure of separability. In fact, it means it is reciprocating the result. It is predicting 0s as 1s and 1s as 0s.
+- And when AUC is 0.5, it means the model has no class separation capacity whatsoever.

@@ -21,7 +21,7 @@ See questions: [company-industry knowledge](questions/company-industry-knowledge
 
 
 
-### Source
+### Resources
  - [Book: Python Machine Learning (Sebastian Raschka)](https://www.amazon.com/Python-Machine-Learning-Sebastian-Raschka-ebook/dp/B00YSILNL0)
  - [Spring Board - 51 Essential Machine Learning Interview Questions and Answers](https://www.springboard.com/blog/machine-learning-interview-questions/)
  - [Simplilearn - Top 34 Machine Learning Interview Questions and Answers](https://www.simplilearn.com/tutorials/machine-learning-tutorial/machine-learning-interview-questions)
@@ -32,3 +32,6 @@ See questions: [company-industry knowledge](questions/company-industry-knowledge
  - [gentle intro to XGBoost](https://machinelearningmastery.com/gentle-introduction-xgboost-applied-machine-learning/)
  - [AWS XGboost](https://docs.aws.amazon.com/sagemaker/latest/dg/xgboost.html)
  - [ML fundamentals cheat sheet confusion matrix](https://shandou.medium.com/ml-fundamentals-cheat-sheet-confusion-matrix-accuracy-precision-recall-sensitivity-205a9f3d3010)
+ - [decision tree vs random forest](https://www.analyticsvidhya.com/blog/2020/05/decision-tree-vs-random-forest-algorithm/)
+ - [XGboost deep dive](https://medium.com/sfu-cspmp/xgboost-a-deep-dive-into-boosting-f06c9c41349)
+ - [Understanding AUC and ROC](https://towardsdatascience.com/understanding-auc-roc-curve-68b2303cc9c5)
