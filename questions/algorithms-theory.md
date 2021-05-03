@@ -478,7 +478,28 @@ full set of alternative hypotheses and because some are nested within others, th
 not have any meaning in and of themselves; only the relative likelihoods — that is, the ratios of two likelihoods — have meaning.
 
 
-#### 16. What is deep learning, and how does it contrast with other machine learning algorithms?
+#### 16. What’s the difference between a generative and discriminative model?
+- A `generative model` will learn categories of data.
+ - A Generative Model ‌learns the `joint probability distribution p(x,y)`. It predicts the conditional probability with the help of Bayes Theorem.
+ - Examples:
+  - ‌Naïve Bayes
+  - Bayesian networks
+  - Markov random fields
+  - Hidden Markov Models (HMM)
+
+
+- A `discriminative` model will simply learn the distinction between different categories of data.
+Discriminative models will generally outperform generative models on classification tasks.
+ -  Discriminative model ‌learns the `conditional probability distribution p(y|x)`. Both of these models were generally used in supervised learning problems.
+ - Examples:
+ - Logistic regression
+ - Scalar Vector Machine
+ - Traditional neural networks
+ - Nearest neighbour
+ - Conditional Random Fields (CRF)s
+
+
+#### 17. What is deep learning, and how does it contrast with other machine learning algorithms?
 Deep learning is a subset of machine learning that is concerned with neural networks: how to use backpropagation and certain principles from neuroscience to more accurately model large sets of unlabelled or semi-structured data. In that sense, deep learning represents an unsupervised learning algorithm that learns representations of data through the use of neural nets.
 
 A neural network (“NN”) can be well presented in a directed acyclic graph: the input layer takes in signal vectors; one or multiple hidden layers process the outputs of the previous layer.
@@ -493,4 +514,4 @@ Here is an interesting plot presenting the relationship between the data scale a
 ![data_size_vs_model_performance](../images/data_size_vs_model_performance.png)
 
 
-##### 6b. What are different Deep neural nets?
+##### 17b. What are different Deep neural nets?
