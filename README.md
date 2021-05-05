@@ -38,3 +38,4 @@ See questions: [company-industry knowledge](questions/company-industry-knowledge
  - [probability and likelihood](https://ruccs.rutgers.edu/images/personal-charles-r-gallistel/publications/2015-APS-Bayes-for-Beginners-1-Probability-and-Likelihood---Association-for-Psychological-Science.pdf)
  - [deep learning basics intro and overview with TF](https://medium.com/tensorflow/mit-deep-learning-basics-introduction-and-overview-with-tensorflow-355bcd26baf0)
  - [an overview of deep learning](https://lilianweng.github.io/lil-log/2017/06/21/an-overview-of-deep-learning.html)
+ - [CNN explained](https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939#:~:text=A%20Convolutional%20Neural%20Network%2C%20also,topology%2C%20such%20as%20an%20image.&text=Each%20neuron%20works%20in%20its,cover%20the%20entire%20visual%20field.)

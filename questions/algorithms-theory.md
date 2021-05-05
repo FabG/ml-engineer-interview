@@ -515,3 +515,74 @@ Here is an interesting plot presenting the relationship between the data scale a
 
 
 ##### 17b. What are different Deep neural nets?
+###### 1. Convolutional Neural Network (CNN)
+A **Convolutional Neural Network**, also known as CNN or ConvNet, is a class of neural networks that specializes in processing data that has a grid-like topology, such as an image.
+
+A digital image is a binary representation of visual data. It contains a series of pixels arranged in a grid-like fashion that contains pixel values to denote how bright and what color each pixel should be.
+![image grid](../images/image-grid.png)
+
+The layers are arranged in such a way so that they detect simpler patterns first (lines, curves, etc.) and more complex patterns (faces, objects, etc.) further along.
+
+**Convolutional Neural Network Architecture**
+
+A CNN typically has three layers:
+- a convolutional layer - to extract high level features, but they are then fed into e.g. fully connected layers for classification tasks.
+- a pooling layer
+- a fully connected layer - for classification
+
+![cnn arch](../images/cnn-architecture.png)
+
+**Convolutional layer**:
+they look for low-level local features (e.g. horizontal or vertical lines) in the first layers, and for more high-level feature in later layers.
+It is the core building block of the CNN. It carries the main portion of the network’s computational load.
+This layer performs a dot product between two matrices, where one matrix is the set of learnable parameters otherwise known as a kernel, and the other matrix is the restricted portion of the receptive field. The kernel is spatially smaller than an image but is more in-depth. This means that, if the image is composed of three (RGB) channels, the kernel height and width will be spatially small, but the depth extends up to all three channels
+
+![convolutional operation](../images/convolutional-operation.gif)
+
+The layer consists of trainable filters or kernels which operate on the input to generate the output feature maps.
+
+![convolutional-layer](../images/convolutional-layer.jpeg)
+
+**pooling layer**:
+The pooling layer replaces the output of the network at certain locations by deriving a summary statistic of the nearby outputs. This helps in reducing the spatial size of the representation, which decreases the required amount of computation and weights. The pooling operation is processed on every slice of the representation individually.
+
+There are several pooling functions such as the average of the rectangular neighborhood, L2 norm of the rectangular neighborhood, and a weighted average based on the distance from the central pixel. However, the most popular process is max pooling, which reports the maximum output from the neighborhood.
+![max pooling](../images/max-pooling.png)
+
+Pooling involves selecting a pooling operation, much like a filter to be applied to feature maps. The size of the pooling operation or filter is smaller than the size of the feature map; specifically, it is almost always 2×2 pixels applied with a stride of 2 pixels.
+
+This means that the pooling layer will always reduce the size of each feature map by a factor of 2, e.g. each dimension is halved, reducing the number of pixels or values in each feature map to one quarter the size. For example, a pooling layer applied to a feature map of 6×6 (36 pixels) will result in an output pooled feature map of 3×3 (9 pixels).
+
+
+**Fully Connected Layer**:
+Neurons in this layer have full connectivity with all neurons in the preceding and succeeding layer as seen in regular FCNN. This is why it can be computed as usual by a matrix multiplication followed by a bias effect
+
+
+###### 2. Recurrent Neural Networks (RNNs)
+RNNs are networks that have cycles and therefore have “state memory”. They can be unrolled in time to become feed forward networks where the weights are shared. Just as CNNs share weights across “space”, RNNs share weights across “time”. This allows them to process and efficiently represent patterns in sequential data.
+
+Many variants of RNNs modules have been developed, including LSTMs and GRUs, to help learn patterns in longer sequences. Applications include natural language modeling, speech recognition, speech generation, etc.
+
+
+###### 3. Auto encoders
+Autoencoders are one of the simpler forms of “unsupervised learning” taking the encoder-decoder architecture and learning to generate an exact copy of the input data. Since the encoded representation is much smaller than the input data, the network is forced to learn how to form the most meaningful representation.
+
+
+Since the ground truth data comes from the input data, no human effort is required. In other words, it’s self-supervised. Applications include unsupervised embeddings, image denoising, etc
+
+Hinton and Salakhutdinov used autoencoders to compress documents on a variety of topics. As shown in Fig 10, when both PCA and autoencoder were applied to reduce the documents onto two dimensions, autoencoder demonstrated a much better outcome. With the help of autoencoder, we can do efficient data compression to speed up the information retrieval including both documents and images.
+
+![auto encoder and pca](../images/autoencoder_experiment.png)
+
+
+###### 4. Generative Adversarial Networks (GANs)
+AN is able to create new examples after learning through the real data. It is consist of two models competing against each other in a zero-sum game framework
+
+In the original GAN paper, GAN was proposed to generate meaningful images after learning from real photos. It comprises two independent models: the Generator and the Discriminator. The generator produces fake images and sends the output to the discriminator model. The discriminator works like a judge, as it is optimized for identifying the real photos from the fake ones. The generator model is trying hard to cheat the discriminator while the judge is trying hard not to be cheated. This interesting zero-sum game between these two models motivates both to develop their designed skills and improve their functionalities. Eventually, we take the generator model for producing new images.
+![gan](../images/GAN.png)
+
+
+###### 5. Deep Reinforcement Learning (Deep RL)
+Reinforcement learning (RL) is a framework for teaching an agent how to act in the world in a way that maximizes reward. When the learning is done by a neural network, we refer to it as Deep Reinforcement Learning (Deep RL). There are three types of RL frameworks: policy-based, value-based, and model-based. The distinction is what the neural network is tasked with learning.
+
+![deep learning](../images/deep-learning.gif)
