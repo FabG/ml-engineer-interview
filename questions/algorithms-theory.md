@@ -586,3 +586,54 @@ In the original GAN paper, GAN was proposed to generate meaningful images after 
 Reinforcement learning (RL) is a framework for teaching an agent how to act in the world in a way that maximizes reward. When the learning is done by a neural network, we refer to it as Deep Reinforcement Learning (Deep RL). There are three types of RL frameworks: policy-based, value-based, and model-based. The distinction is what the neural network is tasked with learning.
 
 ![deep learning](../images/deep-learning.gif)
+
+
+#### 18. What cross-validation technique would you use on a time series dataset?
+Instead of using standard k-folds cross-validation, you have to pay attention to the fact that a time series is not randomly distributed data—it is inherently ordered by chronological order. If a pattern emerges in later time periods, for example, your model may still pick up on it even if that effect doesn’t hold in earlier years!
+
+You’ll want to do something like `forward chaining` where you’ll be able to model on past data then look at forward-facing data.
+
+- Fold 1 : training [1], test [2]
+- Fold 2 : training [1 2], test [3]
+- Fold 3 : training [1 2 3], test [4]
+- Fold 4 : training [1 2 3 4], test [5]
+- Fold 5 : training [1 2 3 4 5], test [6]
+
+
+#### 19. How is a decision tree pruned?
+Answer: Pruning is what happens in decision trees when branches that have weak predictive power are removed in order to reduce the complexity of the model and increase the predictive accuracy of a decision tree model. Pruning can happen bottom-up and top-down, with approaches such as reduced error pruning and cost complexity pruning.
+
+Reduced error pruning is perhaps the simplest version: replace each node. If it doesn’t decrease predictive accuracy, keep it pruned. While simple, this heuristic actually comes pretty close to an approach that would optimize for maximum accuracy.
+
+
+#### 20. How would you handle an imbalanced dataset?
+An imbalanced dataset is when you have, for example, a classification test and 90% of the data is in one class. That leads to problems: an accuracy of 90% can be skewed if you have no predictive power on the other category of data!
+
+Here are a few tactics to get over the hump:
+- Collect more data to even the imbalances in the dataset.
+- Resample the dataset to correct for imbalances.
+ - Random under-sampling: Random Undersampling aims to balance class distribution by randomly eliminating majority class examples.  This is done until the majority and minority class instances are balanced out.
+ - Random Over-Sampling: Over-Sampling increases the number of instances in the minority class by randomly replicating them in order to present a higher representation of the minority class in the sample
+ - Synthetic Minority Over-sampling Technique (`SMOTE`) for imbalanced data. This technique is followed to avoid overfitting which occurs when exact replicas of minority instances are added to the main dataset. A subset of data is taken from the minority class as an example and then new synthetic similar instances are created. These synthetic instances are then added to the original dataset. The new dataset is used as a sample to train the classification models.
+- Try a different algorithm altogether on your dataset.
+- What’s important here is that you have a keen sense for what damage an unbalanced dataset can cause, and how to balance that.
+
+
+#### 21. When should you use classification over regression?
+Classification produces discrete values and dataset to strict categories, while regression gives you continuous results that allow you to better distinguish differences between individual points. You would use classification over regression if you wanted your results to reflect the belongingness of data points in your dataset to certain explicit categories (ex: If you wanted to know whether a name was male or female rather than just how correlated they were with male and female names.)
+
+
+#### 22. How do you ensure you’re not overfitting with a model?
+This is a simple restatement of a fundamental problem in machine learning: the possibility of overfitting training data and carrying the noise of that data through to the test set, thereby providing inaccurate generalizations.
+
+There are three main methods to avoid overfitting:
+- Keep the model simpler: reduce variance by taking into account fewer variables and parameters, thereby removing some of the noise in the training data.
+- Use cross-validation techniques such as k-folds cross-validation.
+- Use regularization techniques such as LASSO that penalize certain model parameters if they’re likely to cause overfitting.
+
+
+#### 23. What evaluation approaches would you work to gauge the effectiveness of a machine learning model?
+You would first split the dataset into training and test sets, or perhaps use cross-validation techniques to further segment the dataset into composite sets of training and test sets within the data. You should then implement a choice selection of performance metrics. You could use measures such as the F1 score, the accuracy, and the confusion matrix.
+
+#### 24. What’s the “kernel trick” and how is it useful?
+The Kernel trick involves kernel functions that can enable in higher-dimension spaces without explicitly calculating the coordinates of points within that dimension: instead, kernel functions compute the inner products between the images of all pairs of data in a feature space. This allows them the very useful attribute of calculating the coordinates of higher dimensions while being computationally cheaper than the explicit calculation of said coordinates. Many algorithms can be expressed in terms of inner products. Using the kernel trick enables us effectively run algorithms in a high-dimensional space with lower-dimensional data.

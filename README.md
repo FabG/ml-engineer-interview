@@ -39,3 +39,4 @@ See questions: [company-industry knowledge](questions/company-industry-knowledge
  - [deep learning basics intro and overview with TF](https://medium.com/tensorflow/mit-deep-learning-basics-introduction-and-overview-with-tensorflow-355bcd26baf0)
  - [an overview of deep learning](https://lilianweng.github.io/lil-log/2017/06/21/an-overview-of-deep-learning.html)
  - [CNN explained](https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939#:~:text=A%20Convolutional%20Neural%20Network%2C%20also,topology%2C%20such%20as%20an%20image.&text=Each%20neuron%20works%20in%20its,cover%20the%20entire%20visual%20field.)
+ - [20 python interview questions and answers](https://www.springboard.com/blog/data-science/python-interview-questions/)
