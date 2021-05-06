@@ -1,5 +1,6 @@
 # Python Programming
 
+### 1. Python Questions
 
 #### What are the key features of Python?
  - Python is one of the most popular programming languages used by data scientists and AIML professionals. This popularity is due to the following key features of Python:
@@ -99,7 +100,16 @@ Dict Comprehension Examples:
 {'cherry': 3, 'mango': 1, 'apple': 0, 'banana': 2}
 ```
 
-#### Show me three different ways of fetching every third item in the list.
+### 2. Python Coding Exercises
+
+
+#### Python Coding 1 - Using list comprehension, print the odd numbers between 0 and 100.
+List comprehensions are a feature in Python that allows us to work with algorithms within the default list data structure in Python. Here, we’re looking for odd numbers.
+```
+[x for x in range(100) if x%2 !=0]
+```
+
+#### Python Coding 2 - Show me three different ways of fetching every third item in the list.
 ```
 cnt=0
 for i in thelist:
@@ -118,13 +128,8 @@ for i in range(len(thelist)):
 [x for i, x in enumerate(thelist) if i%3 == 0]
 ```
 
-#### Using list comprehension, print the odd numbers between 0 and 100.
-List comprehensions are a feature in Python that allows us to work with algorithms within the default list data structure in Python. Here, we’re looking for odd numbers.
-```
-[x for x in range(100) if x%2 !=0]
-```
 
-#### Write a regular expression that confirms an email id using the python reg expression module “re”?
+#### Python Coding 3 - Write a regular expression that confirms an email id using the python reg expression module “re”?
 Example of email: john.smith@gmail.com
 ```python
 import re
@@ -132,7 +137,7 @@ print(re.search(r"[0-9a-zA-Z.]+@[a-zA-Z]+\.(com|co\.in)$", john.smith@gmail.com)
 ```
 
 
-#### Python Algorithm 1: Percent Change (Arithmetic Algorithm)
+#### Python Coding 4 - Percent Change (Arithmetic Algorithm)
 Write a function that calculates the % change between two values `x1` and `x2`.
 
 ```python
@@ -145,7 +150,7 @@ print(percent(10,2))
 # returns -80.0
 ```
 
-#### Python Algorithm 2: Insertion Sort (Sorting Algorithm)
+#### Python Coding 5 - Insertion Sort (Sorting Algorithm)
 We want to take an input (a list of numbers) and return them sorted from the least amount to the most amount.
 
 Notes: `sort()` is inplace, meaning it modifies the original list it is called upon and returns None (which is why you are getting the error 'NoneType' object is not iterable).
@@ -181,7 +186,7 @@ print(sorted_list)
 ```
 
 
-#### Python Algorithm 3: Binary Search (Search Algorithm)
+#### Python Coding 6 - Binary Search (Search Algorithm) and recursion
 Starting from a sorted list (as we have seen in previous exercise), Implement a binary search algorithm.
 This checks to see if the midpoint is your search term, then bisects the list to search for an item within the subset. If the item is on the list, it’ll return True—if not it’ll return False.
 
@@ -208,4 +213,64 @@ print(binary_search(a_list, 7))
 # [2, 3, 4, 5, 8]
 # True
 # False
+```
+
+#### Python Coding 7 - Palindrome
+Create a function that returns true if the input string is a palindrome and false otherwise.
+
+1st option, Using list slicing to check if the original string is the original string sampled backwards one char at a time.
+But this is costly. Slicing essentially creates a copy of the original string. If the original string is large, its copy will double its space use.
+
+```python
+def is_palyndrome(mystring):
+    '''function that returns true if the input string is a palindrome
+    '''
+    return mystring == mystring[::-1]
+
+assert is_palindrome('a')== True
+assert is_palindrome('ab')== False
+assert is_palindrome('aba') == True
+assert is_palindrome('abba') == True
+
+```
+
+2nd option: better with space, using 2 pointers:
+```python
+def is_palindrome(mystring):
+    start = 0
+    end = len(mystring)-1
+    for i in range(len(mystring) // 2):
+        if mystring[i] == mystring[end]:
+            end -= 1
+            continue
+        else:
+            return False
+    return True
+
+def is_palindrome2(word):
+    for i in range(len(word) // 2):
+        if word[i] != word[-1 -i]:
+          return False
+    return True
+
+assert is_palindrome('a')== True
+assert is_palindrome('ab')== False
+assert is_palindrome('aba') == True
+assert is_palindrome('abba') == True
+```
+
+Similar option 2
+```python
+def is_palindrome(arr):
+ start = 0
+ end = len(arr)-1
+ while start < end:
+    if arr[start] != arr[end]:
+      return False
+    start +=1
+    end -=1
+  return True
+assert is_palindrome('a')== True
+assert is_palindrome('aba') == True
+assert is_palindrome('abba') == True
 ```

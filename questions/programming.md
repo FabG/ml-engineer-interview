@@ -28,7 +28,39 @@ Let us consider string S. You are required to count the frequency of all the cha
  - What’s important here is to define your views on how to properly visualize data and your personal preferences when it comes to tools. Popular tools include R’s ggplot, Python’s seaborn and matplotlib, and tools such as Plot.ly and Tableau.
 
 #### How are primary and foreign keys related in SQL?
- - Most machine learning engineers are going to have to be conversant with a lot of different data formats. SQL is still one of the key ones used. Your ability to understand how to manipulate SQL databases will be something you’ll most likely need to demonstrate. In this example, you can talk about how foreign keys allow you to match up and join tables together on the primary key of the corresponding table—but just as useful is to talk through how you would think about setting up SQL tables and querying them.
+ - A `primary key` is used to ensure data in the specific column(s) is unique.
+  - It uniquely identifies a record in the relational database table.
+  - Only one primary key is allowed in a table
+  - It is a combination of `UNIQUE` and `Not Null` constraints
+
+ - A `foreign key` is a column or group of columns in a relational database table that provides a link between data in two tables.
+  - It refers to the field in a table which is the primary key of another table
+  - more than one foreign key are allowed in a table.
+  - It can contain duplicate values and a table in a relational database.
+  - It can also contain NULL values.
+
+The table with the foreign key is called the child table, and the table with the primary key is called the referenced or parent table.
+The FOREIGN KEY constraint is used to prevent actions that would destroy links between tables.
+
+
+Example:
+![foreign primary key](../images/primary-foreign-key.png)
+
+- The "PersonID" column in the "Persons" table is the `PRIMARY KEY` in the "Persons" table.
+- The "PersonID" column in the "Orders" table is a `FOREIGN KEY` in the "Orders" table.
+- The `FOREIGN KEY` constraint prevents invalid data from being inserted into the foreign key column, because it has to be one of the values contained in the parent table.
+
+Example of SQL for MySQL:
+```SQL
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+);
+```
+
 
 #### What is the difference between a JOIN and UNION in SQL?
  - JOIN combines data from many tables based on a matched condition between them.
@@ -58,6 +90,10 @@ FROM   table2
 
 #### How would you build a data pipeline?
  - Data pipelines are the bread and butter of machine learning engineers, who take data science models and find ways to automate and scale them. Make sure you’re familiar with the tools to build data pipelines (such as Apache Airflow) and the platforms where you can host models and pipelines (such as Google Cloud or AWS or Azure). Explain the steps required in a functioning data pipeline and talk through your actual experience building and scaling them in production.
+
+[Example with Apache Airflow](https://towardsdatascience.com/10-minutes-to-building-a-machine-learning-pipeline-with-apache-airflow-53cd09268977)
+
+[Hidden Technical Debt in ML Systems (White Paper)](https://papers.nips.cc/paper/2015/file/86df7dcfd896fcaf2674f757a2463eba-Paper.pdf)
 
 #### What is the Big O notation
 In computer science, big O notation is used to classify algorithms according to how their run time or space requirements grow as the input size grows
