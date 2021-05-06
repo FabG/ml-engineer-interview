@@ -7,19 +7,21 @@ We will cover different areas of the MLE job since it spans across multiple job 
 - The first really has to do with the **algorithms and theory** behind machine learning. You’ll have to show an understanding of how algorithms compare with one another and how to measure their efficacy and accuracy in the right way.
 - The second category has to do with your **programming skills** and your ability to execute on top of those algorithms and the theory.
 - The third has to do with your **general interest in machine learning**. You’ll be asked about what’s going on in the industry and how you keep up with the latest machine learning trends. There are **company or industry-specific questions** that test your ability to take your general machine learning knowledge and turn it into actionable points to drive the bottom line forward.
-
+- The last is more about Behavioral skills - and it can probably be skipped if the candidate is going through a formal Behavioral Interview
 
 ### 1. Algorithms and Theory
-See questions: [algorithms-theory](questions/algorithms-theory.md)
+- [algorithms theory](questions/algorithms-theory.md)
 
 ### 2. Programming Skills
-See questions: [programming](questions/programming.md)
+- [programming - general](questions/programming.md)
+- [programming - python](questions/python-programming.md)
 
 
 ### 3. General interest in machine learning, ompany or industry-specific questions
-See questions: [company-industry knowledge](questions/company-industry-knowledge.md)
+- [company / industry knowledge](questions/company-industry-knowledge.md)
 
-
+### 4. Behavioral Questions
+- [behavioral questions](questions/general-behavioral.md)
 
 ### Resources
  - [Book: Python Machine Learning (Sebastian Raschka)](https://www.amazon.com/Python-Machine-Learning-Sebastian-Raschka-ebook/dp/B00YSILNL0)
