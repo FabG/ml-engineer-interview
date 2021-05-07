@@ -9,3 +9,18 @@
 
 #### 3. Do you have research experience in machine learning?
  - Related to the last point, most organizations hiring for machine learning positions will look for your formal experience in the field. Research papers, co-authored or supervised by leaders in the field, can make the difference between you being hired and not. Make sure you have a summary of your research experience and papers ready—and an explanation for your background and lack of formal research experience if you don’t.
+
+#### 4. What are the last machine learning papers you’ve read?
+Keeping up with the latest scientific literature on machine learning is a must if you want to demonstrate an interest in a machine learning position. This [overview of deep learning in Nature](http://www.cs.toronto.edu/~hinton/absps/NatureDeepReview.pdf) by the scions of deep learning themselves (from Hinton to Bengio to LeCun) can be a good reference paper and an overview of what’s happening in deep learning — and the kind of paper you might want to cite.
+
+#### 5. How would you approach the “Netflix Prize” competition?
+The Netflix Prize was a famed competition where Netflix offered $1,000,000 for a better collaborative filtering algorithm. The team that won called BellKor had a 10% improvement and used an ensemble of different methods to win. Some familiarity with the case and its solution will help demonstrate you’ve paid attention to machine learning for a while. See more info [here](https://en.wikipedia.org/wiki/Netflix_Prize)
+
+#### 6. What are your thoughts on GPT-3 and [OpenAI](https://openai.com/)’s model?
+Answer: GPT-3 is a new language generation model developed by OpenAI. It was marked as exciting because with very little change in architecture, and a ton more data, GPT-3 could generate what seemed to be human-like conversational pieces, up to and including novel-size works and the ability to create code from natural language. There are many perspectives on GPT-3 throughout the Internet — if it comes up in an interview setting, be prepared to address this topic (and trending topics like it) intelligently to demonstrate that you follow the latest advances in machine learning.
+
+
+#### 7. How do you think quantum computing will affect machine learning?
+With the recent announcement of more breakthroughs in quantum computing, the question of how this new format and way of thinking through hardware serves as a useful proxy to explain classical computing and machine learning, and some of the hardware nuances that might make some algorithms much easier to do on a quantum machine. Demonstrating some knowledge in this area helps show that you’re interested in machine learning at a much higher level than just implementation details.
+
+More reading: [Quantum Machine Learning](https://arxiv.org/abs/1611.09347)

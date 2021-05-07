@@ -637,3 +637,27 @@ You would first split the dataset into training and test sets, or perhaps use cr
 
 #### 24. What’s the “kernel trick” and how is it useful?
 The Kernel trick involves kernel functions that can enable in higher-dimension spaces without explicitly calculating the coordinates of points within that dimension: instead, kernel functions compute the inner products between the images of all pairs of data in a feature space. This allows them the very useful attribute of calculating the coordinates of higher dimensions while being computationally cheaper than the explicit calculation of said coordinates. Many algorithms can be expressed in terms of inner products. Using the kernel trick enables us effectively run algorithms in a high-dimensional space with lower-dimensional data.
+
+
+#### 25. How Do You Design an Email Spam Filter?
+Building a spam filter involves the following process:
+- The email spam filter will be fed with thousands of emails
+- Each of these emails already has a label: ‘spam’ or ‘not spam.’
+- The supervised machine learning algorithm will then determine which type of emails are being marked as spam based on spam words like the lottery, free offer, no money, full refund, etc.
+- The next time an email is about to hit your inbox, the spam filter will use statistical analysis and algorithms like Decision Trees and SVM to determine how likely the email is spam
+- If the likelihood is high, it will label it as spam, and the email won’t hit your inbox
+- Based on the accuracy of each model, we will use the algorithm with the highest accuracy after testing all the models
+- To note accuracy is not enough to measure the model's performance based on most likely imbalanced dataset. If that is the case, one needs to use another metric to optimize (`recall` for example)
+
+
+#### 26. Considering a Long List of Machine Learning Algorithms, given a Data Set, How Do You Decide Which One to Use?
+There is no master algorithm for all situations. Choosing an algorithm depends on the following questions:
+- How much data do you have, and is it continuous or categorical?
+- Is the problem related to classification, association, clustering, or regression?
+- Predefined variables (labeled), unlabeled, or mix?
+What is the goal?
+- Based on the above questions, the following algorithms can be used:
+
+![algos vs output](../images/algo-output.jpg)
+
+![algos vs output2](../images/algo-output2.jpg)
