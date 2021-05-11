@@ -42,3 +42,5 @@ We will cover different areas of the MLE job since it spans across multiple job 
  - [an overview of deep learning](https://lilianweng.github.io/lil-log/2017/06/21/an-overview-of-deep-learning.html)
  - [CNN explained](https://towardsdatascience.com/convolutional-neural-networks-explained-9cc5188c4939#:~:text=A%20Convolutional%20Neural%20Network%2C%20also,topology%2C%20such%20as%20an%20image.&text=Each%20neuron%20works%20in%20its,cover%20the%20entire%20visual%20field.)
  - [20 python interview questions and answers](https://www.springboard.com/blog/data-science/python-interview-questions/)
+ - [21 data science interview questions and answers](https://www.kdnuggets.com/2016/02/21-data-science-interview-questions-answers-part2.html/3)
+ - [2 approaches to content based recommendation systems](https://towardsdatascience.com/introduction-to-two-approaches-of-content-based-recommendation-system-fc797460c18c)

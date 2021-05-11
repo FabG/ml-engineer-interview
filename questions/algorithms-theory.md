@@ -264,6 +264,28 @@ Here, it’s important to remember that once in a while, the model needs to be c
   - KNN is a typical example of a `lazy learner`. It is called lazy not because of its apparent simplicity, but because it doesn't learn a discriminative function from the training data but memorizes the training dataset instead.
 
 
+##### 9b - explain the K Nearest Neighbor algorithm
+K nearest neighbor algorithm is a classification algorithm that works in a way that a new data point is assigned to a neighboring group to which it is most similar.
+
+In K nearest neighbors, K can be an integer greater than 1. So, for every new data point, we want to classify, we compute to which neighboring group it is closest.
+
+Let us classify an object using the following example. Consider there are three clusters:
+- Football
+- Basketball
+- Tennis ball
+
+![knn 1](../images/knn-cluster_1.jpg)
+Let the new data point to be classified is a black ball. We use KNN to classify it. Assume K = 5 (initially).
+
+Next, we find the K (five) nearest data points, as shown.
+![knn 2](../images/knn-cluster_2.jpg)
+Observe that all five selected points do not belong to the same cluster. There are three tennis balls and one each of basketball and football.
+
+When multiple classes are involved, we prefer the majority. Here the majority is with the tennis ball, so the new data point is assigned to this cluster.
+
+
+
+
 
 #### 10. When Will You Use Classification over Regression?
 - Classification is used when your target is categorical, while regression is used when your target variable is continuous. Both classification and regression belong to the category of supervised machine learning algorithms.
@@ -661,3 +683,81 @@ What is the goal?
 ![algos vs output](../images/algo-output.jpg)
 
 ![algos vs output2](../images/algo-output2.jpg)
+
+
+#### 27. Briefly Explain Logistic Regression.
+Logistic regression is a classification algorithm used to predict a binary outcome for a given set of independent variables.
+
+The output of logistic regression is either a 0 or 1 with a threshold value of generally 0.5. Any value above 0.5 is considered as 1, and any point below 0.5 is considered as 0.
+
+![logistic regression](../images/logistic_regression.jpg)
+
+
+#### 28. What is a Recommendation System?
+Anyone who has used Spotify or shopped at Amazon will recognize a recommendation system: It’s an information filtering system that predicts what a user might want to hear or see based on choice patterns provided by the user.
+Example:
+- Netflix - "Other Movies you might enjoy"
+- Amazon - "Customers who bought X also bought Y."
+
+Such systems are called `recommendation engines` or more broadly `recommender systems`.
+
+They typically produce recommendations in one of two ways: using `collaborative` or `content-based filtering`:
+
+- **Collaborative filtering** methods build a model based on **users past behavior** (items previously purchased, movies viewed and rated, etc) and use decisions made by current and other users. This model is then used to predict items (or ratings for items) that the user may be interested in.
+
+-  **Content-based filtering** methods use **features of an item** to recommend additional items with similar properties. These approaches are often combined in Hybrid Recommender Systems.
+
+Here is a comparison of these 2 approaches used in two popular music recommender systems - Last.fm and Pandora Radio. (example from Recommender System entry)
+- **Last.fm** creates a "station" of recommended songs by observing what bands and individual tracks the user has listened to on a regular basis and comparing those against the listening behavior of other users. Last.fm will play tracks that do not appear in the user's library, but are often played by other users with similar interests. As this approach leverages the behavior of users, it is an example of a `collaborative filtering technique`.
+- **Pandora** uses the properties of a song or artist (a subset of the 450 attributes provided by the [Music Genome Project](https://www.pandora.com/about/mgp)) in order to seed a "station" that plays music with similar properties. User feedback is used to refine the station's results, deemphasizing certain attributes when a user "dislikes" a particular song and emphasizing other attributes when a user "likes" a song. This is an example of a `content-based approach`.
+
+More info from Wikipedia:
+
+![collaborative filtering](../images/collaborative_filtering.gif)
+
+This image shows an example of predicting of the user's rating using collaborative filtering. At first, people rate different items (like videos, images, games). After that, the system is making predictions about user's rating for an item, which the user hasn't rated yet. These predictions are built upon the existing ratings of other users, who have similar ratings with the active user. For instance, in our case the system has made a prediction, that the active user won't like the video.
+
+**Methodology**:
+ - [Collaborative filtering](https://en.wikipedia.org/wiki/Collaborative_filtering): Collaborative filtering systems have many forms, but many common systems can be reduced to two steps:
+  - Look for users who share the same rating patterns with the active user (the user whom the prediction is for).
+  - Use the ratings from those like-minded users found in step 1 to calculate a prediction for the active user
+  - This falls under the category of user-based collaborative filtering. A specific application of this is the user-based **K-NN** (K Nearest Neighbor algorithm).
+
+ - [Content based filtering](https://en.wikipedia.org/wiki/Recommender_system#Content-based_filtering):  - Alternatively, **item-based collaborative filtering** (users who bought x also bought y), proceeds in an item-centric manner:
+   - Build an item-item matrix determining relationships between pairs of items
+   - Infer the tastes of the current user by examining the matrix and matching that user's data
+
+More on Content based filtering:
+Approach 1:
+![item based filtering](../images/item-based-collaborative-filtering.png)
+  - In model-building stage, the system first find the similarity between all pairs of items, then it uses the most similar items to a user’s already-rated items to generate a list of recommendations in recommendation stage.
+ - For example, if someone watches Edge of Tomorrow, system may recommend Looper based on similarity .
+  - *How can you find the similarity between items?*
+
+  - Usually the similarity will be derived from the description of the item and the concept of **TF-IDF** will be introduced. Then each item will be represented by a TF-IDF vector - used to evaluate how important a word is to a document in a document corpus. The importance of the word increases proportionally to the number of times a word appears in the document but is offset by the frequency of the word in the corpus.
+  - Since the method heavily relies on the description to distinguish each items, the description shall go deeper into the product details, i.e title, summary, taglines, genre, so that it provides much more information about the item.
+
+Here is another approach to **Content Filtering**:
+![content filtering](../images/content-filtering.png)
+
+Approach 2 leverages description or attributes from items the user has interacted to recommend similar items. It depends only on the user previous choices, making this method robust to avoid the cold-start problem. For textual items, like articles, news and books, it is simple to use the article category or raw text to build item profiles and user profiles.
+
+Pros/Cons Pros & Cons of both approaches
+
+Approach 1
+- Pros:
+ - Unlike Collaborative Filtering, if the items have sufficient descriptions, we avoid the “new item problem”.
+ - Content representations are varied and they open up the options to use different approaches like: text processing techniques, the use of semantic information, inferences, etc…
+ - It is easy to make a more transparent system: we use the same content to explain the recommendations.
+- Cons:
+ - Content-Based RecSys tend to over-specialization: they will recommend items similar to those already consumed, with a tendency of creating a “filter bubble”.
+
+Approach 2
+- Pros
+ - User independence: collaborative filtering needs other users’ rating to find the similarity between the users and then give the suggestion. Instead, content-based method only have to analyze the items and user profile for recommendation.
+ - Transparency: collaborative method gives you the recommendation because some unknown users have the same taste like you, but content-based method can tell you they recommend you the items based on what features.
+ - No cold start: opposite to collaborative filtering, new items can be suggested before being rated by a substantial number of users.
+- Cons
+ - Limited content analysis: if the content does not contain enough information to discriminate the items precisely, the recommendation will be not precisely at the end.
+ - Over-specialization: content-based method provides a limit degree of novelty, since it has to match up the features of profile and items. A totally perfect content-based filtering may suggest nothing “surprised.”
+ - New user: when there’s not enough information to build a solid profile for a user, the recommendation could not be provided correctly.
