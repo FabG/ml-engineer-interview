@@ -761,3 +761,43 @@ Approach 2
  - Limited content analysis: if the content does not contain enough information to discriminate the items precisely, the recommendation will be not precisely at the end.
  - Over-specialization: content-based method provides a limit degree of novelty, since it has to match up the features of profile and items. A totally perfect content-based filtering may suggest nothing “surprised.”
  - New user: when there’s not enough information to build a solid profile for a user, the recommendation could not be provided correctly.
+
+
+#### 29. What is Gradient Descent?
+Gradient descent is an optimization algorithm that is used to find the coefficients of a function that minimizes the cost function. By trying different coefficient values, we can evaluate them and easily find the lowest cost.
+It's based on a convex function and tweaks its parameters iteratively to minimize a given function to its local minimum. You start by defining the initial parameter's values and from there gradient descent uses calculus to iteratively adjust the values so they minimize the given cost-function.
+
+What is Gradient? "A gradient measures how much the output of a function changes if you change the inputs a little bit." — Lex Fridman (MIT)"
+
+A gradient simply measures the change in all weights with regard to the change in error. You can also think of a gradient as the slope of a function. The higher the gradient, the steeper the slope and the faster a model can learn. But if the slope is zero, the model stops learning. In mathematical terms, a gradient is a partial derivative with respect to its inputs.
+
+![gradient descent](../images/gradient-descent.png)
+
+
+IMPORTANCE OF THE LEARNING RATE:
+
+How big the steps are gradient descent takes into the direction of the local minimum are determined by the learning rate, which figures out how fast or slow we will move towards the optimal weights.
+
+For gradient descent to reach the local minimum we must set the learning rate to an appropriate value, which is neither too low nor too high. This is important because if the steps it takes are too big, it may not reach the local minimum because it bounces back and forth between the convex function of gradient descent (see left image below). If we set the learning rate to a very small value, gradient descent will eventually reach the local minimum but that may take a while (see the right image).
+![learning rate](../images/gradient-descent-learning-rate.png)
+
+HOW TO MAKE SURE IT WORKS PROPERLY
+
+A good way to make sure gradient descent runs properly is by plotting the cost function as the optimization runs. Put the number of iterations on the x-axis and the value of the cost-function on the y-axis. This helps you see the value of your cost function after each iteration of gradient descent, and provides a way to easily spot how appropriate your learning rate is. You can just try different values for it and plot them all together. The left image below shows such a plot, while the image on the right illustrates the difference between good and bad learning rates.
+![learning rate and cost](../images/gradient-descent-plot.png)
+If gradient descent is working properly, the cost function should decrease after every iteration.
+When gradient descent can’t decrease the cost-function anymore and remains more or less on the same level, it has converged.
+
+TYPES OF GRADIENT DESCENT
+There are three popular types of gradient descent that mainly differ in the amount of data they use:
+- BATCH GRADIENT DESCENT: Batch gradient descent, also called vanilla gradient descent, calculates the error for each example within the training dataset, but only after all training examples have been evaluated does the model get updated. This whole process is like a cycle and it's called a `training epoch`.
+Some advantages of batch gradient descent are its computational efficient, it produces a stable error gradient and a stable convergence. Some disadvantages are the stable error gradient can sometimes result in a state of convergence that isn’t the best the model can achieve. It also requires the entire training dataset be in memory and available to the algorithm.
+- STOCHASTIC GRADIENT DESCENT
+By contrast, stochastic gradient descent (SGD) does this for each training example within the dataset, meaning it updates the parameters for each training example one by one. Depending on the problem, this can make SGD faster than batch gradient descent. One advantage is the frequent updates allow us to have a pretty detailed rate of improvement. The frequent updates, however, are more computationally expensive than the batch gradient descent approach. Additionally, the frequency of those updates can result in noisy gradients, which may cause the error rate to jump around instead of slowly decreasing.
+- MINI-BATCH GRADIENT DESCENT
+Mini-batch gradient descent is the go-to method since it’s a combination of the concepts of SGD and batch gradient descent. It simply splits the training dataset into small batches and performs an update for each of those batches. This creates a balance between the robustness of stochastic gradient descent and the efficiency of batch gradient descent.
+
+
+#### 30. Explain the difference between a Validation Set and a Test Set?
+- A Validation Set is the data sample that is used to fine-tune the model’s hyperparameters
+- A Test set involves data that is used for unbiased testing and evaluating the final performance of the model.
