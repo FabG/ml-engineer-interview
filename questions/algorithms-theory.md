@@ -801,3 +801,73 @@ Mini-batch gradient descent is the go-to method since it’s a combination of th
 #### 30. Explain the difference between a Validation Set and a Test Set?
 - A Validation Set is the data sample that is used to fine-tune the model’s hyperparameters
 - A Test set involves data that is used for unbiased testing and evaluating the final performance of the model.
+
+#### 31. What does P-value signify about the statistical data?
+In a hypothesis test, `P-value` helps you determine the **significance of the results**, allowing you to either accept or reject the null hypothesis.
+- A smaller p-value, i.e ≤ 0.05 means that you should reject the null hypothesis
+- p-value > 0.05 means that you should not reject the null hypothesis
+- p-value close to 0.05 means that it is marginal and could go either way.
+
+#### 32. In NLP, What is stemming, tokenization, lemmarization and Part-of-speech-tagging?
+
+- `Tokenization` is the process of breaking down the given text in natural language processing into the smallest unit in a sentence called a token.
+For that, we can use `nltk (Natural Language Toolkit)` or other libraries like `TestBlob`
+
+![tokenization](../images/tokenization.jpeg)
+
+```python
+import nltk
+from nltk import sent_tokenize
+from nltk import word_tokenize
+
+text = "Hello everyone! Welcome to my blog post on Medium. We are studying Natural Language Processing."
+
+tokens_sents = nltk.sent_tokenize(text)
+print(tokens)
+['Hello everyone!', 'Welcome to my blog post on Medium.', 'We are studying Natural Language Processing.']
+
+tokens_words = nltk.word_tokenize(text)
+print(tokens_words)
+['Hello', 'everyone', '!', 'Welcome', 'to', 'my', 'blog', 'post', 'on', 'Medium', '.', 'We', 'are', 'studying', 'Natural', 'Language', 'Processing', '.']
+```
+
+- `Stemming`  is the process of finding the root of words.
+- `Lemmatization` is the process of finding the form of the related word in the dictionary.
+
+![stemming-lemmatization](../images/stemming-lemmatization.jpeg)
+
+```python
+from nltk.stem import PorterStemmer
+
+ps = PorterStemmer()
+word = ("civilization")
+ps.stem(word)
+'civil'
+```
+
+```python
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+
+# Lemmatize single word
+print(lemmatizer.lemmatize("workers"))
+print(lemmatizer.lemmatize("beeches"))
+'worker'
+'beech'
+```
+
+- `Part of Speech Tagging (POS-Tag)` is the labeling of the words in a text according to their word types (noun, adjective, adverb, verb, etc.).
+POS tagging is a supervised learning solution that uses features like the previous word, next word, is first letter capitalized etc. NLTK has a function to get pos tags and it works after tokenization process.
+
+![POS-Tag](../images/POS-Tag.jpeg)
+
+```python
+import nltk
+from nltk import word_tokenize
+
+text = "The striped bats are hanging on their feet for best"
+tokens = nltk.word_tokenize(text)
+print("Parts of Speech: ",nltk.pos_tag(tokens))
+
+Parts of Speech:  [('The', 'DT'), ('striped', 'JJ'), ('bats', 'NNS'), ('are', 'VBP'), ('hanging', 'VBG'), ('on', 'IN'), ('their', 'PRP$'), ('feet', 'NNS'), ('for', 'IN'), ('best', 'JJS')]
+```

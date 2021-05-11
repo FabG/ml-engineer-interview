@@ -19,6 +19,9 @@ Common native data structures in Python are as follows:
 - Strings
 - Tuples
 
+#### What is an interface?
+At a high level, an interface acts as a blueprint for designing classes. Like classes, interfaces define methods. Unlike classes, these methods are abstract. An abstract method is one that the interface simply defines. It doesn’t implement the methods. This is done by classes, which then implement the interface and give concrete meaning to the interface’s abstract methods.
+
 ##### Of These, Which Are Mutable, and Which Are Immutable?
 - Lists, dictionaries, and sets are mutable. This means that you can change their content without changing their identity.
 - Strings and tuples are immutable, as their contents can’t be altered once they’re created.
