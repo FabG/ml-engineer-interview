@@ -27,9 +27,10 @@ More reading: [Quantum Machine Learning](https://arxiv.org/abs/1611.09347)
 
 
 #### 8. What do you know about Cuda?
-CUDA is a parallel computing platform and programming model developed by Nvidia for general computing on its own GPUs (graphics processing units). CUDA enables developers to speed up compute-intensive applications by harnessing the power of GPUs for the parallelizable part of the computation.
+[CUDA](https://en.wikipedia.org/wiki/CUDA) stands for Compute Unified Device Architecture. It is a parallel computing platform and application programming interface (API) model created by Nvidia. It allows software engineers to use a CUDA-enabled graphics processing unit (GPU) for general purpose processing
+a parallel computing platform and programming model developed by Nvidia for general computing on its own GPUs (graphics processing units). CUDA enables developers to speed up compute-intensive applications by harnessing the power of GPUs for the parallelizable part of the computation.
 
 CUDA in Deeplearning
 Deep learning has an outsized need for computing speed. For example, to train the models for Google Translate in 2016, the Google Brain and Google Translate teams did hundreds of one-week TensorFlow runs using GPUs; they had bought 2,000 server-grade GPUs from Nvidia for the purpose. Without GPUs, those training runs would have taken months rather than a week to converge. For production deployment of those TensorFlow translation models, Google used a new custom processing chip, the TPU (tensor processing unit).
 
-In addition to TensorFlow, many other DL frameworks rely on CUDA for their GPU support, including Caffe2, CNTK, Databricks, H2O.ai, Keras, MXNet, PyTorch, Theano, and Torch. In most cases they use the [cuDNN](https://developer.nvidia.com/cudnn) library for the deep neural network computations. 
+In addition to TensorFlow, many other DL frameworks rely on CUDA for their GPU support, including Caffe2, CNTK, Databricks, H2O.ai, Keras, MXNet, PyTorch, Theano, and Torch. In most cases they use the [cuDNN](https://developer.nvidia.com/cudnn) library for the deep neural network computations.

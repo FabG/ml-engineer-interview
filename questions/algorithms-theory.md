@@ -256,13 +256,14 @@ Here, it’s important to remember that once in a while, the model needs to be c
   - K-Means is unsupervised
   - K-Means is a clustering algorithm
   - The points in each cluster are similar to each other, and each cluster is different from its neighboring clusters
+  - K represents the number of groups or clusters you want to cluster your data into
 
  - **KNN**
   - KNN is supervised in nature
   - KNN is a classification algorithm
   - It classifies an unlabeled observation based on its K (can be any number) surrounding neighbors
   - KNN is a typical example of a `lazy learner`. It is called lazy not because of its apparent simplicity, but because it doesn't learn a discriminative function from the training data but memorizes the training dataset instead.
-
+  - K refers to the number of nearest neighbours to include in the majority of the voting process.
 
 ##### 9b - explain the K Nearest Neighbor algorithm
 K nearest neighbor algorithm is a classification algorithm that works in a way that a new data point is assigned to a neighboring group to which it is most similar.
@@ -275,10 +276,11 @@ Let us classify an object using the following example. Consider there are three 
 - Tennis ball
 
 ![knn 1](../images/knn-cluster_1.jpg)
-Let the new data point to be classified is a black ball. We use KNN to classify it. Assume K = 5 (initially).
 
+Let the new data point to be classified is a black ball. We use KNN to classify it. Assume K = 5 (initially).
 Next, we find the K (five) nearest data points, as shown.
 ![knn 2](../images/knn-cluster_2.jpg)
+
 Observe that all five selected points do not belong to the same cluster. There are three tennis balls and one each of basketball and football.
 
 When multiple classes are involved, we prefer the majority. Here the majority is with the tennis ball, so the new data point is assigned to this cluster.
