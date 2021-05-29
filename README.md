@@ -17,10 +17,13 @@ We will cover different areas of the MLE job since it spans across multiple job 
 - [programming - python](questions/python-programming.md)
 
 
-### 3. General interest in machine learning, ompany or industry-specific questions
+### 3. General interest in machine learning, company or industry-specific questions
 - [company / industry knowledge](questions/company-industry-knowledge.md)
 
-### 4. Behavioral Questions
+### 4. System Design questions
+- [system design](questions/system-design.md)
+
+### 5. Behavioral Questions
 - [behavioral questions](questions/general-behavioral.md)
 
 
