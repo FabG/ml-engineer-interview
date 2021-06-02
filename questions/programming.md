@@ -12,7 +12,11 @@ You could find missing/corrupted data in a dataset and either drop those rows or
 In Pandas, there are two very useful methods: `isnull()` and `dropna()` that will help you find columns of data with missing or corrupted data and drop those values. If you want to fill the invalid values with a placeholder value (for example, 0), you could use the `fillna()` method.
 
 #### What is the difference between an abstract class and an interface (used  Java than python)?
-An abstract class permits you to make functionality that subclasses can implement or override whereas an interface only permits you to state functionality but not to implement it. A class can extend only one abstract class while a class can implement multiple interfaces.
+An` abstract class` permits you to make functionality that subclasses can implement or override whereas an `interface` only permits you to state functionality but not to implement it. A class can extend only one abstract class while a class can implement multiple interfaces.
+
+In Python, we can use an abstract base class to define and enforce an interface.
+
+
 
 #### What are some differences between a linked list and an array?
  - An **array** is an ordered collection of objects.

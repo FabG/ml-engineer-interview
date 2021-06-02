@@ -24,3 +24,5 @@ Below are online resources used to come up with the list of questions for ML Eng
  - [21 data science interview questions and answers](https://www.kdnuggets.com/2016/02/21-data-science-interview-questions-answers-part2.html/3)
  - [2 approaches to content based recommendation systems](https://towardsdatascience.com/introduction-to-two-approaches-of-content-based-recommendation-system-fc797460c18c)
  - [NLP Tokenization, Stemming, Lemmatization and POS-Tag](https://medium.com/mlearning-ai/nlp-tokenization-stemming-lemmatization-and-part-of-speech-tagging-9088ac068768)
+ - [long polling](https://ably.com/topic/long-polling)
+ - [web sockets vs long polling](https://ably.com/blog/websockets-vs-long-polling)
