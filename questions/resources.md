@@ -26,3 +26,4 @@ Below are online resources used to come up with the list of questions for ML Eng
  - [NLP Tokenization, Stemming, Lemmatization and POS-Tag](https://medium.com/mlearning-ai/nlp-tokenization-stemming-lemmatization-and-part-of-speech-tagging-9088ac068768)
  - [long polling](https://ably.com/topic/long-polling)
  - [web sockets vs long polling](https://ably.com/blog/websockets-vs-long-polling)
+ - [Grokking the system design interview (educative.io)](https://www.educative.io/courses/grokking-the-system-design-interview)
