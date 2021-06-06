@@ -27,3 +27,4 @@ Below are online resources used to come up with the list of questions for ML Eng
  - [long polling](https://ably.com/topic/long-polling)
  - [web sockets vs long polling](https://ably.com/blog/websockets-vs-long-polling)
  - [Grokking the system design interview (educative.io)](https://www.educative.io/courses/grokking-the-system-design-interview)
+ - [Coderust: hacking the coding interview](https://www.educative.io/courses/coderust-hacking-the-coding-interview)
