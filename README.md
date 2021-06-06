@@ -26,6 +26,9 @@ We will cover different areas of the MLE job since it spans across multiple job 
 ### 5. Behavioral Questions
 - [behavioral questions](questions/general-behavioral.md)
 
+### 6. Coding Exercises (python)
+##### 6.1 Arrays
+- [Binary Search](exercises/arrays/binary_search_array.ipynb)
 
 #### Resources
  - [online resources](questions/resources.md)
