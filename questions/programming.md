@@ -106,9 +106,144 @@ FROM   table2
 In computer science, big O notation is used to classify algorithms according to how their run time or space requirements grow as the input size grows
 Examples:
 - `O(1)` - constant / Ex: Determining if a binary number is even or odd; Calculating (-1)^{n}; Using a constant-size lookup table
+- `O(log n)` - logarithmic
 - `O(n)` - linear / Ex: Finding an item in an unsorted list or in an unsorted array
+- `O(n^2)` - quadratic
 
 ![big O](../images/BigO-complexity.png)
+
+Examples:
+- `Constant Time — O(1)`
+An algorithm is said to have a `constant time` when it is not dependent on the input data (n). No matter the size of the input data, the running time will always be the same.
+Example:
+```python
+if a > b:
+    return True
+else:
+    return False
+```
+
+Now, let’s take a look at the function `get_first` which returns the first element of a list:
+```python
+def get_first(data):
+    return data[0]
+
+if __name__ == '__main__':
+    data = [1, 2, 9, 8, 3, 4, 7, 6, 5]
+    print(get_first(data))
+```
+Independently of the input data size, it will always have the same running time since it only gets the first value from the list.
+An algorithm with constant time complexity is excellent since we don’t need to worry about the input size.
+
+- `Logarithmic Time — O(log n)`
+An algorithm is said to have a `logarithmic time` complexity when it reduces the size of the input data in each step (it don’t need to look at all values of the input data), for example:
+```python
+for index in range(0, len(data), 3):
+    print(data[index])
+```
+
+Algorithms with logarithmic time complexity are commonly found in operations on binary trees or when using binary search. Let’s take a look at the example of a binary search, where we need to find the position of an element in a sorted list:
+```python
+def binary_search(data, value):
+    n = len(data)
+    left = 0
+    right = n - 1
+    while left <= right:
+        middle = (left + right) // 2
+        if value < data[middle]:
+            right = middle - 1
+        elif value > data[middle]:
+            left = middle + 1
+        else:
+            return middle
+    raise ValueError('Value is not in the list')
+
+if __name__ == '__main__':
+    data = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    print(binary_search(data, 8))
+```
+
+- `Linear Time — O(n)``
+An algorithm is said to have a linear time complexity when the running time increases at most linearly with the size of the input data. This is the best possible time complexity when the algorithm must examine all values in the input data. For example:
+```python
+for value in data:
+    print(value)
+```
+
+Let’s take a look at the example of a linear search, where we need to find the position of an element in an unsorted list:
+```python
+def linear_search(data, value):
+    for index in range(len(data)):
+        if value == data[index]:
+            return index
+    raise ValueError('Value not found in the list')
+
+if __name__ == '__main__':
+    data = [1, 2, 9, 8, 3, 4, 7, 6, 5]
+    print(linear_search(data, 7))
+```
+
+
+- `Quasilinear Time — O(n log n)``
+An algorithm is said to have a `quasilinear` time complexity when each operation in the input data have a logarithm time complexity. It is commonly seen in sorting algorithms (e.g. mergesort, timsort, heapsort).
+
+For example: for each value in the data1 (O(n)) use the binary search (O(log n)) to search the same value in data2.
+```python
+for value in data1:
+    result.append(binary_search(data2, value))
+```
+
+Another, more complex example, can be found in the Mergesort algorithm. Mergesort is an efficient, general-purpose, comparison-based sorting algorithm which has quasilinear time complexity, let’s see an example:
+```python
+def merge_sort(data):
+    if len(data) <= 1:
+        return
+
+    mid = len(data) // 2
+    left_data = data[:mid]
+    right_data = data[mid:]
+
+    merge_sort(left_data)
+    merge_sort(right_data)
+
+    left_index = 0
+    right_index = 0
+    data_index = 0
+
+    while left_index < len(left_data) and right_index < len(right_data):
+        if left_data[left_index] < right_data[right_index]:
+            data[data_index] = left_data[left_index]
+            left_index += 1
+        else:
+            data[data_index] = right_data[right_index]
+            right_index += 1
+        data_index += 1
+
+    if left_index < len(left_data):
+        del data[data_index:]
+        data += left_data[left_index:]
+    elif right_index < len(right_data):
+        del data[data_index:]
+        data += right_data[right_index:]
+
+if __name__ == '__main__':
+    data = [9, 1, 7, 6, 2, 8, 5, 3, 4, 0]
+    merge_sort(data)
+    print(data)
+```
+
+The following image exemplifies the steps taken by the mergesort algorithm.
+![merge sort](../images/merge_sort.png)
+
+
+- `Quadratic Time — O(n²)`
+An algorithm is said to have a quadratic time complexity when it needs to perform a linear time operation for each value in the input data, for example:
+```python
+for x in data:
+    for y in data:
+        print(x, y)
+```
+
 
 ##### What does it mean if an operation is O(log n)?  
  - `O(log n)` means for every element, you're doing something that only needs to look at log N of the elements. This is usually because you know something about the elements that let you make an efficient choice (for example to reduce a search space). Big
