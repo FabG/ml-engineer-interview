@@ -30,6 +30,7 @@ We will cover different areas of the MLE job since it spans across multiple job 
 ##### 6.1 Arrays
 - [Binary Search](exercises/arrays/binary_search_array.ipynb)
 - [Find Max in sliding window](exercises/arrays/max_sliding_window.ipynb)
+- [Search a Rotated Array](exercises/arrays/search_rotated_array.ipynb)
 
 #### Resources
  - [online resources](questions/resources.md)
