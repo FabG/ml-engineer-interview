@@ -31,6 +31,7 @@ We will cover different areas of the MLE job since it spans across multiple job 
 - [Binary Search](exercises/arrays/binary_search_array.ipynb)
 - [Find Max in sliding window](exercises/arrays/max_sliding_window.ipynb)
 - [Search a Rotated Array](exercises/arrays/search_rotated_array.ipynb)
+- [Find smallest common number](exercises/arrays/smallest_common_number.ipynb)
 
 #### Resources
  - [online resources](questions/resources.md)
