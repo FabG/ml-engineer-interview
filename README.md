@@ -33,6 +33,7 @@ We will cover different areas of the MLE job since it spans across multiple job 
 - [Search a Rotated Array](exercises/arrays/search_rotated_array.ipynb)
 - [Find smallest common number](exercises/arrays/smallest_common_number.ipynb)
 - [Rotate array based on n](exercises/arrays/rotate_array_n_elements.ipynb)
+- [Find Low and High index of key in an array](exercises/arrays/low_high_index_array.ipynb)
 
 #### Resources
  - [online resources](questions/resources.md)
