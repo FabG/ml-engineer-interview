@@ -36,6 +36,8 @@ We will cover different areas of the MLE job since it spans across multiple job 
 - [Find Low and High index of key in an array](exercises/arrays/low_high_index_array.ipynb)
 - [Quick sort an array](exercises/arrays/sort_array.ipynb)
 
+##### 6.2 Linked Lists
+- [Reverse a singly linked list](exercises/linked_lists/reverse_singly_linked_list.ipynb)
 
 #### Resources
  - [online resources](questions/resources.md)
